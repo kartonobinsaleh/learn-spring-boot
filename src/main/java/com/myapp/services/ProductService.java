@@ -1,5 +1,7 @@
 package com.myapp.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +31,9 @@ public class ProductService {
 
     public void removeOne(Long id) {
         productRepo.deleteById(id);
+    }
+
+    public List<Product> findByName(String name) {
+        return productRepo.findByNameContains(name);
     }
 }
